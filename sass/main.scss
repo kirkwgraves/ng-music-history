@@ -1,3 +1,29 @@
+
+body {
+	background: url('http://img15.deviantart.net/6b76/i/2012/325/a/5/gramophone_by_swilsonphotos-d5lo64z.jpg') no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+h2 {
+	color: white;
+}
+
 .jumbotron {
-	background-color: #FFB4B0;  
+	margin-top: 66px;
+	width: 911px;
+	margin-left: auto;
+	margin-right:auto;
+	text-align: center;  
+}
+
+
+.artistSelect {
+	margin-left: 125px;
+}
+
+.albumSelect {
+	margin-left: 125px;
 }

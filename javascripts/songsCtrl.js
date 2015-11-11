@@ -1,14 +1,13 @@
 app.controller('songsCtrl', function($scope) {
 	$scope.songs = null;
 	$scope.moreSongs = null;
-	$scope.allSongs = "";
+	$scope.allSongs = [];
 
 	$.ajax('json/songs.json')
 	.done(function(songsData) {
 		$scope.songs = songsData.songs;
 		$scope.$apply();
 		console.log('songs', $scope.songs);		
-		return $scope.songs;
 	}).fail(function(error) {
 		console.log('error', error);
 	});
@@ -19,7 +18,6 @@ app.controller('songsCtrl', function($scope) {
 		$scope.moreSongs = moreSongsData.moreSongs;
 		$scope.$apply();
 		console.log('moreSongs', $scope.moreSongs);
-		return $scope.moreSongs;
 	}).fail(function(error) {
 		console.log('error', error);
 	});

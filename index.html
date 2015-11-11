@@ -11,10 +11,10 @@
 
 <body ng-app="MusicHistoryApp">
 	<div class="container-fluid">
-		<div class="navbar navbar-material-blue-700 navbar-inverse">
+		<div class="navbar navbar-material-indigo-100 navbar-inverse navbar-fixed-top">
 			<div class="container">
-        <a class="navbar-brand text-muted" href="#">FoundSound</a>
         <div class="collapse navbar-collapse">
+        	<a class="navbar-brand text-muted" href="#">FoundSound</a>
 
           <ul class="nav navbar-nav navbar-right">
             <li><a class="active" href="#" class="selected">View Music</a></li>
@@ -26,27 +26,45 @@
       </div>
 		</div>
 
-		<div class="jumbotron">
-      <h1>FoundSound</h1>
-      <h3>Leave No Song Behind</h3>
-    </div>
+			<div class="jumbotron jumbotron-material-indigo-100">
+	      <h1>FoundSound</h1>
+	      <h3>Leave No Song Behind</h3>
+	    </div>
 
 
 		<div class="content-wrapper row"> 
+			
 			<div class="col-md-5" ng-controller="songsCtrl">
-				<ul ng-repeat="song in moreSongs">
-					<li>{{song.title}}</li>
-					<!-- <li>{{song.album}}</li> -->
-				</ul>
+				<div class="artistSelect">
+					<h2>Search by Artist</h2>
+					<select 
+					ng-model="artists"
+					ng-options="value group by value.artist for value in moreSongs">
+					</select>
+				</div>
+			</div>
+		
+
+			<div class="col-md-5 col-md-offset-2" ng-controller="songsCtrl">
+				<div class="albumSelect">
+					<h2>Search by Album</h2>
+					<select 
+					ng-model="albums" 
+					ng-options="value group by value.album for value in moreSongs">
+					</select>
+				</div>
+			</div>
+
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3" ng-view>
 			</div>
 		</div>
-
-			<div class="col-md-5 col-md-offset-2">
-				<h1>YOUR MUSIC</h1>
-			</div>
+		
+		</div>
 	</div>
 
 <script type="text/javascript" src="lib/bower_components/angular/angular.min.js"></script>
+<script type="text/javascript" src="lib/bower_components/angular-route/angular-route.min.js"></script>
 <script type="text/javascript" src="lib/bower_components/jquery/dist/jquery.min.js"></script>
 <script type="text/javascript" src="lib/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="lib/bower_components/bootstrap-material-design/dist/js/material.min.js"></script>
