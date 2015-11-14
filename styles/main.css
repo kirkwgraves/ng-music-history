@@ -5,10 +5,17 @@ body {
   -o-background-size: cover;
   background-size: cover; }
 
+a {
+  color: white; }
+
 h2 {
   color: white; }
 
+.navbar {
+  opacity: .70; }
+
 .jumbotron {
+  opacity: .70;
   margin-top: 66px;
   width: 911px;
   margin-left: auto;

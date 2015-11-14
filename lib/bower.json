@@ -18,6 +18,7 @@
     "jquery": "~2.1.4",
     "bootstrap-material-design": "~0.3.0",
     "bootstrap": "~3.3.5",
-    "angular-route": "~1.4.7"
+    "angular-route": "~1.4.7",
+    "angularfire": "~1.1.3"
   }
 }
