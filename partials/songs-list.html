@@ -1,8 +1,9 @@
 <div>
-  <input type="text" ng-model="query" />
+  <input type="text" class="form-control songListInput" placeholder="Search for a song" ng-model="songsCtrl.searchText" />
 </div>
 
-<div class="songsList" ng-repeat="song in songs_list">
+<h2>Your Saved Songs</h2>
+<div class="songsList" ng-repeat="song in songsCtrl.songs_list | filter: songsCtrl.searchText">
   <a href="#/songs/{{ song.id }}">{{ song.title }}</a>
 </div>
 <div>

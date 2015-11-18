@@ -1,98 +1,54 @@
-var app = angular.module('MusicHistoryApp', ['ngRoute', 'firebase']);
+var app = angular.module('MusicHistoryApp', ['ngRoute', 'firebase', 'Songs.User']);
 
 app.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider
-      .when('/', {
+      .when('/songs/list', {
         templateUrl: 'partials/songs-list.html',
-        controller: 'SongsCtrl'
+        controller: 'SongsCtrl as songsCtrl'
       })
-      .when('/add', {
+      .when('/songs/new', {
         templateUrl: 'partials/add-song.html',
-        controller: 'AddSongCtrl'
-      });
+        controller: 'AddSongCtrl as addSongCtrl'
+      })
+      .when('/songs/:songId', {
+      	templateUrl: 'partials/song-detail.html',
+      	controller: 'SongDetailCtrl as songDetailCtrl'
+      })
+      .when('/login', {
+      	templateUrl: 'partials/user-login.html',
+      	controller: 'UserCtrl as userCtrl'
+      })
+      .when('/register', {
+      	templateUrl: 'partials/user-new.html',
+      	controller: 'UserCtrl as userCtrl'
+      })
+      .otherwise({redirectTo: '.'});
+
   }]);
 
-app.factory('song_service', function($http, $q) {
-  
-  var songList = [];
 
-  function init() {
-    return $q(function(resolve, reject) {
-    	$http
-      	.get('./data/songs.json')
-      	.success(
-        	function(objectFromJSONFile) {
-          	songList = objectFromJSONFile.songs;
-          	console.log('songList', songList);
-          	resolve(songList)
-        	},function(error) {
-         	 reject(error);
-        	}
-      	);
-    });
-  };
 
-  var promise = init();
 
-  function getSongs(){
-  	console.log('songList', songList);
-    return promise;
-  }
 
-  console.log('songList', songList);
 
-  function getSingleSong(id) {
-    return songList.filter(function(song){
-    	console.log('song', song);
-      return song.id === id;
-    })[0];
-  }
 
-  function addSong(songObj) {
-    songList.push(songObj);
-    return songList;
-  }
 
-  return {
-    getSongs: getSongs,
-    getSingleSong: getSingleSong,
-    addSong: addSong
-  };
-}); //end factory
+app.controller('AuthCtrl',
+	[
+		'$firebaseAuth',
+		function($firebaseAuth) {
+			var ref = new Firebase('https://scorching-heat-1482.firebaseio.com/songs');
 
-app.controller('SongsCtrl',
-  [
-    '$scope',
-    'song_service',
-    function($scope, song_service) {
-      // get initial list of songs on page load
-      song_service.getSongs().then(function(songsList) {
-      	$scope.songs_list = songsList;
-	      console.log('$scope.songs_list', $scope.songs_list);
+			var auth = $firebaseAuth(ref);
 
-      });
-    }
-  ]
-);
-
-app.controller("AddSongCtrl",
-  [
-    "$scope",
-    "song_service",
-    function($scope, song_service ) {
-      $scope.newSong = { title: "", album: "", year: "", artist: "" };
-
-      $scope.addSong = function() {
-        $scope.songs_list = song_service.addSong({
-          artist: $scope.newSong.artist,
-          title: $scope.newSong.title,
-          album: $scope.newSong.album
-        });
-        console.log("Add song", $scope.songs_list);
-      };
-    }
-  ]
+			auth.$authWithOAuthPopup('facebook').then(function(authData) {
+				console.log('Logged in as: ', authData.uid);
+			}).catch(function(error) {
+				console.log('Authentication failed: ', error);
+			});
+		}
+	]
 );
 
 

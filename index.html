@@ -11,22 +11,11 @@
 
 <body ng-app="MusicHistoryApp">
 	<div class="container-fluid">
-		<div class="navbar navbar-material-indigo-100 navbar-inverse navbar-fixed-top">
-			<div class="container">
-        <div class="collapse navbar-collapse">
-        	<a class="navbar-brand text-muted" href="#">FoundSound</a>
 
-          <ul class="nav navbar-nav navbar-right">
-            <li><a class="active" href="#" class="selected">View Music</a></li>
-            <li><a href="#">Add Music</a></li>
-            <li><a href="#">Profile</a></li>
-          </ul>
+		<div ng-include="'partials/navbar.html'"></div>
+		
 
-        </div> 
-      </div>
-		</div>
-
-		<div class="jumbotron jumbotron-material-indigo-100">
+		<div class="jumbotron jumbotron-material-teal-A700">
       <h1>FoundSound</h1>
       <h3>Leave No Song Behind</h3>
     </div>
@@ -34,9 +23,10 @@
 
 		<div class="content-wrapper row"> 
 			
-			<div class="col-md-5 col-md-offset-3" ng-view>
+			<div class="col-md-6 col-md-offset-3">
+				<div ng-view></div>
 			</div>
-		
+
 		</div>
 
 	</div>
@@ -45,10 +35,15 @@
 <script type="text/javascript" src="lib/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="lib/bower_components/bootstrap-material-design/dist/js/material.min.js"></script>
 <script type="text/javascript" src="lib/bower_components/firebase/firebase.js"></script>
-<script type="text/javascript" src="lib/bower_components/angularfire/dist/angularfire.min.js"></script>
 <script type="text/javascript" src="lib/bower_components/angular/angular.min.js"></script>
 <script type="text/javascript" src="lib/bower_components/angular-route/angular-route.min.js"></script>
-<script type="text/javascript" src="app.js"></script>
+<script type="text/javascript" src="lib/bower_components/angularfire/dist/angularfire.min.js"></script>
+<script type="text/javascript" src="app/app.js"></script>
+<script type="text/javascript" src="app/user.js"></script>
+<script type="text/javascript" src="app/controllers/SongsCtrl.js"></script>
+<script type="text/javascript" src="app/controllers/SongDetailCtrl.js"></script>
+<script type="text/javascript" src="app/controllers/AddSongCtrl.js"></script>
+<script type="text/javascript" src="app/controllers/UserCtrl.js"></script>
 </body>
 
 </html>

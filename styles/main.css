@@ -1,26 +1,72 @@
+section span {
+  color: teal;
+  font-size: 1.3em; }
+
 body {
-  background: url("http://img15.deviantart.net/6b76/i/2012/325/a/5/gramophone_by_swilsonphotos-d5lo64z.jpg") no-repeat center center fixed;
+  background: url("http://www.mojo4music.com/media/2014/05/bob-dylan-artist-guide.jpg") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover; }
 
-a {
-  color: white; }
-
 h2 {
   color: white; }
 
-.navbar {
-  opacity: .70; }
+.form-control {
+  color: white; }
+
+#addBtn {
+  margin-left: 20px; }
+
+input.form-control {
+  display: inline-block;
+  font-size: 1.2em;
+  width: 77.5%; }
+
+.inputField {
+  padding-top: 10px;
+  padding-bottom: 10px; }
+
+.inputField span {
+  display: inline-block;
+  padding-left: 15px;
+  width: 15%; }
+
+.songDetailDiv {
+  background-color: black;
+  opacity: .85;
+  padding-left: 20px;
+  padding-top: 10px; }
+
+.songDetailDiv h2, h3, h4 {
+  color: white; }
+
+.songsList {
+  color: white;
+  font-size: 1.3em;
+  padding-top: 15px;
+  padding-left: 20px;
+  padding-bottom: 10px;
+  background-color: black;
+  opacity: .90; }
+
+.songListInput {
+  margin-top: 35px; }
+
+.addForm {
+  background-color: black;
+  opacity: .85; }
 
 .jumbotron {
-  opacity: .70;
+  opacity: .80;
   margin-top: 66px;
-  width: 911px;
+  width: 65%;
   margin-left: auto;
   margin-right: auto;
   text-align: center; }
+
+.jumbotron h1 {
+  font-weight: 500; }
 
 .artistSelect {
   margin-left: 125px; }
