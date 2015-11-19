@@ -4,14 +4,14 @@ app.controller('AddSongCtrl',
     'Auth',
     function($songsArray, Auth) {
 
-    	var ref = new Firebase('https://scorching-heat-1482.firebaseio.com/songs');
-    	this.songs = $songsArray(ref);
       this.newSong = {};
       this.auth = Auth;
       this.auth.$onAuth(function(authData) {
         this.userData = authData.uid;
       }.bind(this));
-      console.log('this.songs', this.songs);
+      console.log('userData', this.userData);
+      var ref = new Firebase('https://scorching-heat-1482.firebaseio.com/songs/' + userId);
+      this.songs = $songsArray(ref);
 
 
       this.addSong = function() {
