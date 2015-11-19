@@ -43,13 +43,57 @@ h2 {
 .form-control {
   color: white; }
 
+h3.welcome__text {
+  padding-left: 50px;
+  color: white;
+  font-size: 1.53em; }
+
+.login-container {
+  margin-left: auto;
+  margin-right: auto;
+  background-color: black;
+  opacity: .85;
+  border: 1px solid teal; }
+
+div.user-login__input {
+  padding-top: 20px;
+  padding-left: 35px;
+  padding-right: 15px;
+  color: teal;
+  font-weight: 400;
+  font-size: 1.1em; }
+
+.user-login__input span {
+  padding-right: 10px; }
+
+.user-login__input input.email {
+  width: 74.75%; }
+
+a.login__btn {
+  margin-left: 32px;
+  margin-top: 35px; }
+
+a.facebook__btn {
+  margin-top: 35px; }
+
+.user-login__input input.password {
+  width: 64%; }
+
+h3.create__cta {
+  padding-left: 50px;
+  color: white;
+  font-size: 1.45em; }
+
+a.acct__btn {
+  margin-left: 32px; }
+
 #addBtn {
   margin-left: 20px; }
 
 input.form-control {
   display: inline-block;
   font-size: 1.2em;
-  width: 77.5%; }
+  width: 77.2%; }
 
 .inputField {
   padding-top: 10px;

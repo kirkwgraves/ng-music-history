@@ -1,25 +1,25 @@
 <section class="login-container">
- <!--  ng-show allows us to hide and show elements based on whether a user has been authenticated -->
+
   <div ng-show="userCtrl.authData">
     <p>Hello, {{ authData.password.email }}</p>
     <a class="btn btn-danger" href="#/songs/list" role="button">View my songs</a>
     <button ng-click="userCtrl.auth.$unauth()">Logout</button>
     <button ng-click="userCtrl.removeUser()">Remove User</button>
   </div>
-  <!-- Same as ng-show, but this is hidden when authData has a value -->
-  <div ng-hide="userCtrl.authData">
-    <p>Welcome to FoundSound. Log in to continue.</p>
-    <div class="user-login__input">
-      <span>Email:</span> <input ng-model="userCtrl.email" type="text">
-    </div>
-    <div class="user-login__input">
-      <span>Password:</span> <input ng-model="userCtrl.password" type="text">
-    </div>
-    <a class="btn btn-material-teal-A700" ng-click="userCtrl.loginUser()" role="button">Login</a>
-    <span>or</span>
-    <a class="btn btn-material-blue-700" ng-click="userCtrl.auth.$authWithOAuthPopup('facebook')" role="button">Login with Facebook</a>
 
-    <p>Want to keep track of your favorite music?</p>
-    <a class="btn btn-material-deep-orange-A400" href="#/register" role="button">Create an Account!</a>
+    <h3 class="welcome__text">Welcome to FoundSound. Log in to continue.</h3>
+  <div ng-hide="userCtrl.authData">
+    <div class="user-login__input">
+      <span>EMAIL</span> <input class="email form-control" ng-model="userCtrl.email" type="text">
+    </div>
+    <div class="user-login__input">
+      <span>PASSWORD</span> <input class="password form-control" ng-model="userCtrl.password" type="text">
+    </div>
+    <a class="btn btn-material-teal-A700 login__btn" ng-click="userCtrl.loginUser()" role="button">Login</a>
+    <a class="btn btn-material-blue-700 facebook__btn" ng-click="userCtrl.auth.$authWithOAuthPopup('facebook')" role="button">Facebook Login</a>
+
+    <h3 class="create__cta">Don't have an account?</h3>
+    <a class="btn btn-material-deep-orange-A400 acct__btn" href="#/register" role="button">Register</a>
   </div>
+
 </section>
