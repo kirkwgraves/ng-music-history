@@ -1,15 +1,15 @@
 <div class="user-container">
-  <span>Email:</span> <input ng-model="userCtrl.email" type="text">
-  <span>Password:</span> <input ng-model="userCtrl.password" type="text">
+  <div class="register-div">
+	  <span>EMAIL</span> <input class="form-control" id="emailField" placeholder="bob@dylan.com" ng-model="userCtrl.email" type="text"/>
+  </div>
+  <div class="register-div">
+	  <span>PASSWORD</span> <input class="form-control" id="passwordField" ng-model="userCtrl.password" type="text"/>
+  </div>
 
-  <br><br>
+  <button class="createBtn btn btn-material-teal-A700" ng-click="userCtrl.createUser()">REGISTER</button>
 
-  <button ng-click="userCtrl.createUser()">Create User</button>
+  <button class="removeBtn btn btn-material-red" ng-click="userCtrl.removeUser()">REMOVE</button>
 
-  <br><br>
-
-  <button ng-click="userCtrl.removeUser()">Remove User</button>
-
-  <p ng-if="userCtrl.message">Message: <strong>{{ message }}</strong></p>
-  <p ng-if="userCtrl.error">Error: <strong>{{ error }}</strong></p>
+ <!--  <p ng-if="userCtrl.message">Message: <strong>{{ userCtrl.message }}</strong></p>
+  <p ng-if="userCtrl.error">Error: <strong>{{ userCtrl.error }}</strong></p> -->
 </div>

@@ -15,6 +15,40 @@ h2 {
 	color: white;
 }
 
+.user-container {
+	background-color: black;
+	opacity: .85;
+	margin-left: auto;
+	margin-right: auto;
+	border: 1px solid teal;
+}
+
+.register-div {
+	padding-top: 15px;
+	margin-bottom: 20px;
+}
+
+.register-div span {
+	padding-left: 12px;
+	padding-right: 8px;
+	color: teal;
+	font-weight: 400;
+	font-size: 1.5em;
+	width: 25%;
+}
+
+#emailField {
+	width: 70%;
+}
+
+#passwordField {
+	width: 60%;
+}
+
+.createBtn {
+	margin-left: 16px;
+}
+
 .form-control {
 	color: white;
 	// display: inline-block;

@@ -1,11 +1,16 @@
 app.controller('AddSongCtrl',
   [
     '$firebaseArray',
-    function($songsArray) {
+    'Auth',
+    function($songsArray, Auth) {
 
     	var ref = new Firebase('https://scorching-heat-1482.firebaseio.com/songs');
     	this.songs = $songsArray(ref);
       this.newSong = {};
+      this.auth = Auth;
+      this.auth.$onAuth(function(authData) {
+        this.userData = authData.uid;
+      }.bind(this));
       console.log('this.songs', this.songs);
 
 
@@ -15,7 +20,8 @@ app.controller('AddSongCtrl',
           artist: this.newSong.artist,
           year: this.newSong.year,
           genre: this.newSong.genre,
-          title: this.newSong.title
+          title: this.newSong.title,
+          userId: this.userData
         });
         console.log("newSong added: ", this.newSong);
       }.bind(this);

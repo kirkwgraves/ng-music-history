@@ -4,8 +4,9 @@
 
 <h2>Your Saved Songs</h2>
 <div class="songsList" ng-repeat="song in songsCtrl.songs_list | filter: songsCtrl.searchText">
-  <a href="#/songs/{{ song.id }}">{{ song.title }}</a>
+  <a href="#/songs/{{ song.id }}" ng-if="showSong(song)">{{ song.title }}</a>
 </div>
+<a class="btn btn-material-red" id="goToAdd" href="#/songs/new" role="button">Add Songs</a>
 <div>
   {{ error }}
 </div>

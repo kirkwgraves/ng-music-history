@@ -13,7 +13,6 @@ app.controller('SongDetailCtrl',
 			
 			this.songs.$loaded()
         .then(function() {
-          // The $getRecord method on a $firebaseArray is very useful
           console.log('this.songs', this.songs);
           this.selectedSong = this.songs.$getRecord(this.songId);
           console.log('this.selectedSong', this.selectedSong);

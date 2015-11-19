@@ -10,10 +10,11 @@ angular.module('Songs.User')
 				password: this.password
 			}).then(function(userData) {
 				this.message = "User created with uid: " + userData.uid;
-			}).catch(function(error) {
+				console.log('this.message', this.message);
+			}.bind(this)).catch(function(error) {
 				this.error = error;
-			});
-		}.bind(this);
+			}.bind(this));
+		};
 
 		this.removeUser = function() {
 			this.message = null;
@@ -24,10 +25,10 @@ angular.module('Songs.User')
 				password: this.password
 			}).then(function() {
 				this.message = "User removed";
-			}).catch(function(error) {
+			}.bind(this)).catch(function(error) {
 				this.error = error;
-			});
-		}.bind(this);
+			}.bind(this));
+		};
 
 		this.loginUser = function() {
 			Auth.$authWithPassword({
@@ -36,11 +37,11 @@ angular.module('Songs.User')
 			}).then(function(authData) {
 				console.log('Logged in as: ',authData);
 				this.authData = authData;
-			}).catch(function(error) {
+			}.bind(this)).catch(function(error) {
 				this.error = error;
 				console.log('Authentication failed: ', error);
-			});			
-		}.bind(this);
+			}.bind(this));			
+		};
 	
 	}
 
