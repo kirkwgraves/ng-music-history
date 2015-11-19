@@ -7,14 +7,15 @@ app.controller('AddSongCtrl',
       $rootScope.auth = Auth;
       console.log('$rootScope.auth', $rootScope.auth);
       $rootScope.auth.$onAuth(function(authData) {
-        $rootScope.user = authData.uid;
-      });
-
+        console.log('authData', authData);
+      $rootScope.user = authData.uid;
+      console.log('$rootScope.user', $rootScope.user);
       var ref = new Firebase('https://scorching-heat-1482.firebaseio.com/songs/' + $rootScope.user);
       console.log('ref', ref);
+      });
+
 
       this.newSong = {};
-      console.log('$rootScope.user', $rootScope.user);
       
       this.songs = $songsArray(ref);
 
