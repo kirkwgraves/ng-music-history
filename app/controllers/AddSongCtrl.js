@@ -1,18 +1,19 @@
 app.controller('AddSongCtrl',
-  [ '$rootScope',
-    '$firebaseArray',
+  [
+   '$firebaseArray',
     'Auth',
-    function($rootScope, $songsArray, Auth) {
+    function($songsArray, Auth) {
       
-      $rootScope.auth = Auth;
-      console.log('$rootScope.auth', $rootScope.auth);
-      $rootScope.auth.$onAuth(function(authData) {
+      this.auth = Auth;
+      console.log('this.auth', this.auth);
+      this.auth.$onAuth(function(authData) {
         console.log('authData', authData);
-      $rootScope.user = authData.uid;
-      console.log('$rootScope.user', $rootScope.user);
-      var ref = new Firebase('https://scorching-heat-1482.firebaseio.com/songs/' + $rootScope.user);
+      this.user = authData.uid;
+      console.log('this.user', this.user);
       console.log('ref', ref);
-      });
+      }.bind(this));
+      
+      var ref = new Firebase('https://scorching-heat-1482.firebaseio.com/songs/' + this.user);
 
 
       this.newSong = {};
@@ -30,14 +31,15 @@ app.controller('AddSongCtrl',
         });
         console.log("newSong added: ", this.newSong);
 
-        this.newSong = {album: null,
-                   artist: null,
-                   year: null,
-                   genre: null,
-                   title: null,
+        this.newSong = {
+          album: null,
+          artist: null,
+          year: null,
+          genre: null,
+          title: null   
         };
 
       }.bind(this);
-    }.bind(this)
+    }
   ]
 );

@@ -1,17 +1,18 @@
 app.controller('SongsCtrl',
-  [ '$rootScope',
+  [ 
     '$firebaseArray',
     'Auth',
-    function($rootScope, $songsArray, Auth) {
-      $rootScope.auth = Auth;
-      console.log('$rootScope.auth', $rootScope.auth);
-      $rootScope.auth.$onAuth(function(authData) {
+    function($songsArray, Auth) {
+      this.auth = Auth;
+      console.log('this.auth', this.auth);
+      this.auth.$onAuth(function(authData) {
         console.log('authData', authData);
-      $rootScope.user = authData.uid;
-      console.log('$rootScope.user', $rootScope.user);
-      var ref = new Firebase('https://scorching-heat-1482.firebaseio.com/songs/' + $rootScope.user);
+      this.user = authData.uid;
+      console.log('this.user', this.user);
       console.log('ref', ref);
-      });
+      }.bind(this));
+      
+      var ref = new Firebase('https://scorching-heat-1482.firebaseio.com/songs/' + this.user);
       
       // get initial list of songs on page load, filtered by userID. showSong is called from ng-if in song-list partial	
       this.songs_list = $songsArray(ref);

@@ -23,14 +23,18 @@ angular.module('Songs.User')
 			this.message = null;
 			this.error = null;
 
-			Auth.removeUser({
+			Auth.$removeUser({
 				email: this.email,
 				password: this.password
 			}).then(function() {
 				this.message = "User removed";
+				console.log('this.message', this.message);
 			}.bind(this)).catch(function(error) {
 				this.error = error;
 			}.bind(this));
+
+			this.email = null;
+			this.password = null;
 		};
 
 		this.loginUser = function() {
