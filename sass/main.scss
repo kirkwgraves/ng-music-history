@@ -111,14 +111,21 @@ a.acct__btn {
 
 #addBtn {
 	margin-left: 20px;
+	margin-bottom: 20px;
 }
 
 input.form-control {
 	display: inline-block;
+	padding-left: 15px;
 	font-size: 1.2em;
-	width: 77.2%;
+	width: 72%;
 }
 
+form.addForm {
+	width: 85%;
+	margin: auto;
+	border: 1px solid teal;
+}
 
 .inputField {
 	padding-top: 10px;
@@ -126,6 +133,10 @@ input.form-control {
 }
 
 .inputField span { 
+	color: teal;
+	font-size: 1.2em;
+	margin-right: 20px;
+	font-weight: 400;
 	display: inline-block;
 	padding-left: 15px;
 	width: 15%;
@@ -174,10 +185,3 @@ input.form-control {
 	font-weight: 500;
 }
 
-.artistSelect {
-	margin-left: 125px;
-}
-
-.albumSelect {
-	margin-left: 125px;
-}

@@ -89,18 +89,29 @@ a.acct__btn {
   margin-bottom: 15px; }
 
 #addBtn {
-  margin-left: 20px; }
+  margin-left: 20px;
+  margin-bottom: 20px; }
 
 input.form-control {
   display: inline-block;
+  padding-left: 15px;
   font-size: 1.2em;
-  width: 77.2%; }
+  width: 72%; }
+
+form.addForm {
+  width: 85%;
+  margin: auto;
+  border: 1px solid teal; }
 
 .inputField {
   padding-top: 10px;
   padding-bottom: 10px; }
 
 .inputField span {
+  color: teal;
+  font-size: 1.2em;
+  margin-right: 20px;
+  font-weight: 400;
   display: inline-block;
   padding-left: 15px;
   width: 15%; }
@@ -140,11 +151,5 @@ input.form-control {
 
 .jumbotron h1 {
   font-weight: 500; }
-
-.artistSelect {
-  margin-left: 125px; }
-
-.albumSelect {
-  margin-left: 125px; }
 
 /*# sourceMappingURL=main.css.map */

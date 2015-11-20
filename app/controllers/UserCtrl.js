@@ -14,6 +14,9 @@ angular.module('Songs.User')
 			}.bind(this)).catch(function(error) {
 				this.error = error;
 			}.bind(this));
+
+			this.email = null;
+			this.password=null;
 		};
 
 		this.removeUser = function() {

@@ -29,7 +29,15 @@ app.controller('AddSongCtrl',
           title: this.newSong.title,
         });
         console.log("newSong added: ", this.newSong);
+
+        this.newSong = {album: null,
+                   artist: null,
+                   year: null,
+                   genre: null,
+                   title: null,
+        };
+
       }.bind(this);
-    }
+    }.bind(this)
   ]
 );
