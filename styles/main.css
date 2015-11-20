@@ -80,12 +80,13 @@ a.facebook__btn {
   width: 64%; }
 
 h3.create__cta {
-  padding-left: 50px;
+  padding-left: 36px;
   color: white;
   font-size: 1.45em; }
 
 a.acct__btn {
-  margin-left: 32px; }
+  margin-left: 38px;
+  margin-bottom: 15px; }
 
 #addBtn {
   margin-left: 20px; }
